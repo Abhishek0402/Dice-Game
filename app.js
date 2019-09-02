@@ -9,7 +9,7 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer, gamestatus;
+var scores, roundScore, activePlayer, gameStatus;
 
 initial();
 
@@ -17,7 +17,7 @@ initial();
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
     
-    if(gamestatus) {
+    if(gameStatus) {
 
         //generate random number 
     var dice = Math.floor(Math.random() * 6) + 1;
@@ -45,7 +45,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 
 document.querySelector('.btn-hold').addEventListener('click', function (){
   
-if(gamestatus){
+if(gameStatus) {
 //add current score to parent or global score
 scores[activePlayer] += roundScore;
 
@@ -59,7 +59,7 @@ document.querySelector('#score-' + activePlayer).textContent = scores[activePlay
         document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');     
         document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
 
-        gamestatus = false;
+        gameStatus = false;
     }
         else {
 //next player
